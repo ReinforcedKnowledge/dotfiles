@@ -1,0 +1,104 @@
+start-at-login = true
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Notify sketchybar on workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change 2>/dev/null'
+]
+
+# Gaps and padding
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+outer.left = 10
+outer.right = 10
+outer.top = 45
+outer.bottom = 5
+
+# Float exceptions
+[[on-window-detected]]
+if.app-name-regex-substring = 'System Settings'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Raycast'
+run = 'layout floating'
+
+# Keybindings
+[mode.main.binding]
+# Focus window
+cmd-ctrl-h = 'focus left'
+cmd-ctrl-j = 'focus down'
+cmd-ctrl-k = 'focus up'
+cmd-ctrl-l = 'focus right'
+
+# Move window
+cmd-ctrl-shift-h = 'move left'
+cmd-ctrl-shift-j = 'move down'
+cmd-ctrl-shift-k = 'move up'
+cmd-ctrl-shift-l = 'move right'
+
+# Switch workspace
+cmd-ctrl-1 = 'workspace 1'
+cmd-ctrl-2 = 'workspace 2'
+cmd-ctrl-3 = 'workspace 3'
+cmd-ctrl-4 = 'workspace 4'
+cmd-ctrl-5 = 'workspace 5'
+cmd-ctrl-6 = 'workspace 6'
+cmd-ctrl-7 = 'workspace 7'
+cmd-ctrl-8 = 'workspace 8'
+cmd-ctrl-9 = 'workspace 9'
+
+# Move window to workspace
+cmd-ctrl-shift-1 = 'move-node-to-workspace 1'
+cmd-ctrl-shift-2 = 'move-node-to-workspace 2'
+cmd-ctrl-shift-3 = 'move-node-to-workspace 3'
+cmd-ctrl-shift-4 = 'move-node-to-workspace 4'
+cmd-ctrl-shift-5 = 'move-node-to-workspace 5'
+cmd-ctrl-shift-6 = 'move-node-to-workspace 6'
+cmd-ctrl-shift-7 = 'move-node-to-workspace 7'
+cmd-ctrl-shift-8 = 'move-node-to-workspace 8'
+cmd-ctrl-shift-9 = 'move-node-to-workspace 9'
+
+# Fullscreen
+cmd-ctrl-shift-f = 'fullscreen'
+
+# Float toggle
+cmd-ctrl-shift-t = 'layout floating tiling'
+
+# Rotate layout
+cmd-ctrl-shift-r = 'layout tiles horizontal vertical'
+
+# Balance windows
+cmd-ctrl-shift-enter = 'balance-sizes'
+
+# Resize mode
+cmd-ctrl-r = 'mode resize'
+
+# Open Ghostty
+cmd-enter = '''exec-and-forget osascript -e '
+if application "Ghostty" is running then
+    tell application "System Events" to tell process "Ghostty" to keystroke "n" using command down
+else
+    do shell script "open -a Ghostty"
+end if'
+'''
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'

@@ -1,0 +1,16 @@
+theme = Catppuccin Mocha
+
+background-opacity = 0.95
+background-blur = true
+
+font-family = "JetBrains Mono"
+foreground = #e4e4ef
+
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+window-padding-x = 10
+window-padding-y = 10
+
+macos-titlebar-style = hidden
